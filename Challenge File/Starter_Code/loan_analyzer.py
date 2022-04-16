@@ -12,22 +12,27 @@ First, let's start with some calculations on a list of prices for 5 loans.
     3. Using the sum of all loans and the total number of loans, calculate the average loan price.
     4. Print all calculations with descriptive messages.
 """
-loan_costs = [500, 600, 200, 1000, 450]
+loan_costs = [500, 600, 200, 1000, 450,]
 
+for numbers in loan_costs:
+    total_number_of_loans = len(loan_costs)
+    total_of_all_loans = sum(loan_costs)
+    average_loan_price = total_of_all_loans / total_number_of_loans
+    
 # How many loans are in the list?
 # @TODO: Use the `len` function to calculate the total number of loans in the list.
 # Print the number of loans from the list
-# YOUR CODE HERE!
+    print("Total number of Loans is", total_number_of_loans)
 
 # What is the total of all loans?
 # @TODO: Use the `sum` function to calculate the total of all loans in the list.
 # Print the total value of the loans
-# YOUR CODE HERE!
+    print("Total amount of all Loans is $", total_of_all_loans)
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
 # Print the average loan amount
-# YOUR CODE HERE!
+    print("The average loans size is $", average_loan_price)
 
 """Part 2: Analyze Loan Data.
 
@@ -62,7 +67,8 @@ loan = {
 
 # @TODO: Use get() on the dictionary of additional information to extract the Future Value and Remaining Months on the loan.
 # Print each variable.
-# YOUR CODE HERE!
+print("Future Value of Loan: ", loan["future_value"])
+
 
 
 # @TODO: Use the formula for Present Value to calculate a "fair value" of the loan.
