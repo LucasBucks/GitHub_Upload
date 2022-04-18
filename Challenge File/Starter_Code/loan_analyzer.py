@@ -127,7 +127,11 @@ def price_this_loan(future_value, remaining_months, annual_discount_rate):
     new_present_value = (future_value / (1 + annual_discount_rate/12) ** remaining_months)
       
     return new_present_value
-    
+# Created a new variable to calculate the present value of the new loan utilizing my define function
+# of price_this_loan.  Utilizing the define function, I can make the present value formula accept different
+# information by calling it from it's own dictionary of new_loan and then loan.  the parameters in the 
+# define function did not have to relate to the new_loan key:value set.  When calling the function, that is 
+# when the specific data is used such as new_loan   
 new_loan_present_value = price_this_loan(new_loan["future_value"], new_loan["remaining_months"], annual_discount_rate)
 loan_present_value = price_this_loan(loan["future_value"], loan["remaining_months"], annual_discount_rate)
 
@@ -140,7 +144,7 @@ print("Present value of the old laon is $ ", round(loan_present_value, 2))
 # @TODO: Use the function to calculate the present value of the new loan given below.
 #    Use an `annual_discount_rate` of 0.2 for this new loan calculation.
 # YOUR CODE HERE!
-print(f"The present value of the loan is: {new_loan_present_value}")
+print(f"The present value of the loan is: {new_loan_present_value: .2f}")
 
 
 """Part 4: Conditionally filter lists of loans.
@@ -182,13 +186,20 @@ loans = [
 ]
 
 # @TODO: Create an empty list called `inexpensive_loans`
-# YOUR CODE HERE!
+inexpensive_loans = []
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
-# YOUR CODE HERE!
+ #for this loop, must create a variable for loan price first and then the if statement.  the variable will equal the word after
+ # for and before in [the key in loans]   
+for item in loans:
+    loan_price = item["loan_price"]
+    if loan_price <= 500:
+        inexpensive_loans.append(loan_price)
+    
+
 
 # @TODO: Print the `inexpensive_loans` list
-# YOUR CODE HERE!
+print("These loans are inexpenxive:", inexpensive_loans)
 
 
 """Part 5: Save the results.
