@@ -186,6 +186,7 @@ loans = [
 ]
 
 # @TODO: Create an empty list called `inexpensive_loans`
+# this is a variable that = empty []
 inexpensive_loans = []
 
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
@@ -217,10 +218,21 @@ Output this list of inexpensive loans to a csv file
 """
 
 # Set the output header
-header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
 
+import csv 
+
+header = ["loan_price", "remaining_months", "repayment_interval", "future_value"]
+csvpath = Path("inexpensive_loans.csv")
+with open(csvpath, 'w', newline='') as csvfile:
+    csvwriter = csv.writer(csvfile)
+
+    csvwriter.writerow(header)
+
+    for row in inexpensive_loans:
+        csvwriter.writerow(row.values())
+        
 # Set the output file path
-output_path = Path("inexpensive_loans.csv")
+#output_path = Path("inexpensive_loans.csv")
 
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
