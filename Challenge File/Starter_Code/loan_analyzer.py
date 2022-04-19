@@ -229,7 +229,7 @@ with open(csvpath, 'w', newline='') as csvfile:
     csvwriter.writerow(header)
 
     for row in inexpensive_loans:
-        csvwriter.writerow(row.values())
+        csvwriter.writerow(loan.values())
         
 # Set the output file path
 #output_path = Path("inexpensive_loans.csv")
